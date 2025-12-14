@@ -1,0 +1,14 @@
+# Archivos de IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Archivos compilados y build de Maven
+target/
+out/
+build/
+*.class
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
