@@ -15,11 +15,10 @@ public class RegistroView extends JFrame {
     private JButton btnNuevo, btnAgregar, btnEliminar;
 
     public RegistroView() {
-        // Desactivar LookAndFeel para control total de colores
-        // try { UIManager.setLookAndFeel(...); } catch... (Omitido)
+ 
 
         setTitle("Gestión de Clientes Accesible");
-        setSize(800, 600); // Ventana más ancha para la tabla
+        setSize(800, 600); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -31,7 +30,7 @@ public class RegistroView extends JFrame {
         // --- PANEL DE FORMULARIO (IZQUIERDA) ---
         JPanel formPanel = new JPanel(new GridLayout(6, 1, 10, 10));
         formPanel.setOpaque(false);
-        formPanel.setPreferredSize(new Dimension(300, 0)); // Ancho fijo para el formulario
+        formPanel.setPreferredSize(new Dimension(300, 0)); 
 
         // Inputs
         agregarCampo(formPanel, "Código Cliente:", txtCodigo = new JTextField());
@@ -49,9 +48,9 @@ public class RegistroView extends JFrame {
         JPanel btnPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         btnPanel.setOpaque(false);
 
-        btnNuevo = crearBoton("NUEVO", new Color(108, 117, 125)); // Gris
-        btnAgregar = crearBoton("AGREGAR", new Color(0, 34, 68)); // Azul Oscuro
-        btnEliminar = crearBoton("ELIMINAR", new Color(132, 32, 41)); // Rojo Oscuro
+        btnNuevo = crearBoton("NUEVO", new Color(108, 117, 125)); 
+        btnAgregar = crearBoton("AGREGAR", new Color(0, 34, 68)); 
+        btnEliminar = crearBoton("ELIMINAR", new Color(132, 32, 41));
 
         btnPanel.add(btnNuevo);
         btnPanel.add(btnAgregar);
@@ -61,17 +60,16 @@ public class RegistroView extends JFrame {
         mainPanel.add(formPanel, BorderLayout.WEST);
 
         // --- PANEL DE TABLA (CENTRO) ---
-        // Configuración del modelo de tabla (Columnas)
         String[] columnas = {"CÓDIGO", "NOMBRES", "APELLIDOS", "ESTADO", "SEXO"};
         modeloTabla = new DefaultTableModel(null, columnas) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Hacemos que la tabla sea solo lectura
+                return false;
             }
         };
 
         tablaDatos = new JTable(modeloTabla);
-        estilizarTabla(tablaDatos); // Aplicar accesibilidad a la tabla
+        estilizarTabla(tablaDatos); 
 
         JScrollPane scrollPane = new JScrollPane(tablaDatos);
         scrollPane.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
@@ -116,12 +114,12 @@ public class RegistroView extends JFrame {
     }
 
     private void estilizarTabla(JTable table) {
-        table.setFont(new Font("Arial", Font.PLAIN, 16)); // Letra grande en filas
-        table.setRowHeight(30); // Filas altas para fácil lectura
+        table.setFont(new Font("Arial", Font.PLAIN, 16)); 
+        table.setRowHeight(30); 
         table.getTableHeader().setFont(new Font("Arial", Font.BOLD, 14));
-        table.getTableHeader().setBackground(new Color(33, 37, 41)); // Cabecera oscura
-        table.getTableHeader().setForeground(Color.WHITE); // Texto blanco
-        table.setSelectionBackground(new Color(255, 243, 205)); // Selección amarilla (Alto contraste)
+        table.getTableHeader().setBackground(new Color(33, 37, 41)); 
+        table.getTableHeader().setForeground(Color.WHITE); 
+        table.setSelectionBackground(new Color(255, 243, 205)); 
         table.setSelectionForeground(Color.BLACK);
     }
 
@@ -160,7 +158,7 @@ public class RegistroView extends JFrame {
         btnEliminar.addActionListener(listener);
     }
 
-    // Getters de botones para identificar la fuente del evento
+
     public JButton getBtnNuevo() { return btnNuevo; }
     public JButton getBtnAgregar() { return btnAgregar; }
     public JButton getBtnEliminar() { return btnEliminar; }
