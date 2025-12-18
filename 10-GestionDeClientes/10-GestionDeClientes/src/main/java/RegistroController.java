@@ -32,14 +32,14 @@ public class RegistroController implements ActionListener {
     }
 
     private void agregar() {
-        // 1. Obtener datos
+      
         String codigo = vista.getCodigo();
         String nombre = vista.getNombre();
         String apellidos = vista.getApellidos();
         String estado = vista.getEstadoCivil();
         String sexo = vista.getSexo();
 
-        // 2. Validaciones
+    
         if (codigo.isEmpty() || nombre.isEmpty() || apellidos.isEmpty()) {
             vista.mostrarError("Por favor complete los campos de texto.");
             return;
@@ -49,13 +49,13 @@ public class RegistroController implements ActionListener {
             return;
         }
 
-        // 3. Crear Cliente (Modelo)
+        
         Cliente cliente = new Cliente(codigo, nombre, apellidos, estado, sexo);
 
-        // 4. Agregar a la Tabla (Vista)
+
         vista.agregarFila(cliente.toArray());
 
-        // Opcional: Limpiar después de agregar
+
         vista.limpiarFormulario();
     }
 
