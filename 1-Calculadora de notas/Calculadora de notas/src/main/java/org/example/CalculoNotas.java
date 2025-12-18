@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class CalculoNotas extends JFrame {
 
-    // Componentes (Privados, nadie los toca directamente)
+
     private JTextField txtAlumno, txtAsistencia, txtTrabajoPractico, txtExamenParcial, txtTrabajoFinal, txtExamenFinal;
     private JTextField txtNotaNumerica, txtNotaLiteral;
     private JButton btnCalcular;
@@ -67,7 +67,8 @@ public class CalculoNotas extends JFrame {
         btnCalcular.setForeground(Color.WHITE);
         btnCalcular.setFocusPainted(false);
         btnCalcular.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        // NOTA: AQUI YA NO HAY LOGICA, SOLO DISEÑO
+        
+   
         bottomPanel.add(btnCalcular);
 
         JPanel resultsPanel = new JPanel(new GridLayout(2, 2, 10, 5));
@@ -91,26 +92,26 @@ public class CalculoNotas extends JFrame {
     }
 
     // --- MÉTODOS PÚBLICOS PARA EL CONTROLADOR ---
-    // El controlador usará esto para "escuchar" el botón
+   
     public void setBotonListener(ActionListener listener) {
         btnCalcular.addActionListener(listener);
     }
 
-    // Getters para sacar datos
+
     public String getAsistencia() { return txtAsistencia.getText(); }
     public String getTP() { return txtTrabajoPractico.getText(); }
     public String getEP() { return txtExamenParcial.getText(); }
     public String getTF() { return txtTrabajoFinal.getText(); }
     public String getEF() { return txtExamenFinal.getText(); }
 
-    // Setters para mostrar resultados
+
     public void setNotaNumerica(String valor) { txtNotaNumerica.setText(valor); }
     public void setNotaLiteral(String valor, Color color) {
         txtNotaLiteral.setText(valor);
         txtNotaLiteral.setForeground(color);
     }
 
-    // Métodos visuales helpers
+
     public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
