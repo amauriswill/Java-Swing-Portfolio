@@ -15,7 +15,7 @@ public class Cliente {
         this.sexo = sexo;
     }
 
-    // Convertimos el objeto a un arreglo para la tabla fácilmente
+
     public Object[] toArray() {
         return new Object[]{codigo, nombre, apellidos, estadoCivil, sexo};
     }
@@ -23,5 +23,5 @@ public class Cliente {
     // Getters básicos
     public String getCodigo() { return codigo; }
     public String getNombre() { return nombre; }
-    // ... otros getters si fueran necesarios para lógica futura
+
 }
